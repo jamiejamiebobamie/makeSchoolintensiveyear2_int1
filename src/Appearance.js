@@ -17,6 +17,8 @@ import {Confused} from 'styled-icons/boxicons-regular'
 import {Cool} from 'styled-icons/boxicons-regular'
 import {HappyBeaming} from 'styled-icons/boxicons-regular'
 import {HappyHeartEyes} from 'styled-icons/boxicons-regular'
+import {Question} from 'styled-icons/octicons'
+
 
 function Appearance(props){
 
@@ -92,12 +94,18 @@ function Appearance(props){
                         color={props.color}
                         size={props.size} />)
         break;
+    case 'Question':
+      type = (<Question
+                      className='questionMark'
+                      color={props.color}
+                      size='100' />)
+      break;
       default:
         type = (<Snapchat
                         className={props.styleClass}
                         style={{left:props.x,top:props.y}}
                         color={props.color}
-                        size={props.size} />)
+                        size='0' />)
     }
 
     return (

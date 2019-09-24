@@ -13,29 +13,31 @@ class Icon extends Component {
         this.state = { type: this.props.type,
                        styleClass: this.props.styleClass,
                        size: this.props.size,
-                       x: Math.random()*this.props.width,
-                       y: Math.random()*this.props.height,
-                       destinationX: Math.random()*this.props.width,
+                       x: this.props.x,
+                       y: this.props.y,
+                       destinationX: Math.random()*this.props.height,
                        destinationY: Math.random()*this.props.height,
                        color: this.props.color,
-                       id: Math.random(),
+                       id: props.id,
                        doOnce: true,
                         }
                         // console.log(Math.random(), this.props.width)
     }
 
     setNewLocation(){
-        if (this.state.destinationX === this.state.x && this.state.destinationY === this.state.y) {
-            let x = Math.random*this.props.width
-            let y = Math.random*this.props.height
-            this.setState({destinationX:x, destinationY:y})
+        if (this.state.destinationX - this.state.x < 10 && this.state.destinationY - this.state.y < 10 && this.state.doOnce) {
+            console.log('arrived')
+            let x = Math.random()*this.props.width
+            let y = Math.random()*this.props.height
+            this.setState({destinationX:x, destinationY:y, doOnce: false})
+            setTimeout( () => {this.setState({doOnce: true})}, 5000);
         }
     }
 
     moveToLocation(){
-        if (this.state.destinationX === this.state.x && this.state.destinationY === this.state.y) {
-            let moveX = this.state.x + (this.state.destinationX - this.state.x) / this.state.destinationX
-            let moveY = this.state.y + (this.state.destinationY - this.state.y) / this.state.destinationY
+        if (this.state.destinationX !== this.state.x && this.state.destinationY !== this.state.y) {
+            let moveX = this.state.x + ((this.state.destinationX - this.state.x) / this.state.destinationX)*5
+            let moveY = this.state.y + ((this.state.destinationY - this.state.y) / this.state.destinationY)*5
             this.setState({x:moveX, y:moveY})
         }
     }
@@ -45,12 +47,13 @@ class Icon extends Component {
             () => {this.setNewLocation()}, 10000);
 
         setTimeout(
-            () => {this.moveToLocation()}, 1000);
+            () => {this.moveToLocation()}, 40);
 
-        if(!this.props.toggle && this.state.doOnce){
-            this.props.storeLocations({id:this.state.id, x: this.state.x, y: this.state.y})
-            this.setState({doOnce:!this.state.doOnce})
-        }
+
+        // if(!this.props.toggle && this.state.doOnce){
+        //     this.props.storeLocations({id:this.state.id, x: this.state.x, y: this.state.y})
+        //     this.setState({doOnce:!this.state.doOnce})
+        // }
 
         return (
             < Appearance type={this.state.type} styleClass={this.state.styleClass} size={this.state.size} color={this.props.color} x={this.state.x} y={this.state.y} />

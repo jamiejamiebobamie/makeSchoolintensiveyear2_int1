@@ -1,8 +1,8 @@
 
 
       .container{
-        flex: 1;
-        background-color: #fff;
+        display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
       },
@@ -71,15 +71,8 @@
 .pattern{
     position: absolute;
     z-index: 0;
-    /* width:10;
-    height:10; */
-    /* margin: 0px;
-    padding: 0px; */
 }
 
-.backgroundPattern{
-    overflow: hidden;
-}
 
 .radialTransparency{
     display: flex;
@@ -91,4 +84,106 @@
     background: radial-gradient(circle, rgba(0,0,0,1) 19%, rgba(255,255,255,1) 100%);
     position:absolute;
     z-index: 2;
+}
+
+.questionMark{
+    left:25%;
+    top:5%;
+    position: absolute;
+    z-index: 5
+}
+
+.createAnimalText{
+    /* left:40%; */
+    /* top:53%; */
+    position: absolute;
+    z-index: 4;
+    font-size: 20px;
+    color: white;
+
+/* https://stackoverflow.com/questions/16771225/css3-rotate-animation */
+    position: absolute;
+
+    width: 400px;
+    height: 120px;
+    -webkit-animation:spin 50s linear infinite;
+    -moz-animation:spin 50s linear infinite;
+    animation:spin 50s linear infinite;
+    top: 27.2%;
+    left: 51.5%;
+    /* transform-origin: bottom center; */
+
+}
+
+
+h1 span {
+  /* font: 26px Monaco, MonoSpace; */
+  height: 200px;
+  position: absolute;
+  width: 20px;
+  top: 0;
+  left: 0;
+  transform-origin: bottom center;
+
+}
+
+span{
+    @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+    @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+    @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+}
+
+.char1 { transform: rotate(12.4deg); }
+.char2 { transform: rotate(24.8deg); }
+.char3 { transform: rotate(37.2deg); }
+.char4 { transform: rotate(49.6deg); }
+.char5 { transform: rotate(62deg); }
+.char6 { transform: rotate(74.44deg); }
+.char7 { transform: rotate(86.84deg); }
+.char8 { transform: rotate(99.24deg); }
+.char9 { transform: rotate(111.64deg); }
+.char10 { transform: rotate(124.04deg); }
+.char11 { transform: rotate(136.44deg); }
+.char12 { transform: rotate(148.84deg); }
+.char13 { transform: rotate(161.24deg); }
+.char14 { transform: rotate(173.64deg); }
+.char15 { transform: rotate(186.04deg); }
+.char16 { transform: rotate(198.44deg); }
+.char17 { transform: rotate(210.84deg); }
+.char18 { transform: rotate(223.24deg); }
+.char19 { transform: rotate(235.64deg); }
+.char20 { transform: rotate(248.04deg); }
+.char21 { transform: rotate(260.44deg); }
+.char22 { transform: rotate(272.84deg); }
+.char23 { transform: rotate(285.24deg); }
+.char24 { transform: rotate(297.64deg); }
+.char25 { transform: rotate(310.04deg); }
+.char26 { transform: rotate(322.44deg); }
+.char27 { transform: rotate(334.84deg); }
+.char28 { transform: rotate(347.24deg); }
+.char29 { transform: rotate(359.64deg); }
+
+
+.createAnimalButton{
+    left:45%;
+    top:40%;
+    position: absolute;
+    z-index: 5;
+    width: 200px;
+    height: 200px;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+
+@media only screen and (max-width:600px){
+    /* .createAnimalText{
+            font-size: 30px;
+    } */
+
+    .createAnimalButton{
+        top:39.5%;
+        left:33%;
+    }
 }

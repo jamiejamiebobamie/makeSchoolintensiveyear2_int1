@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import Icon from './Icon'
+
 import './CreateAnimal.css'
 
 
@@ -15,86 +17,34 @@ class CreateAnimal extends Component {
             locationX: 0,
             locationY: 0,
             reload: false,
+            pickingColor: false,
+            color: '',
         }
 
-        // this._onPressButton = this._onPressButton.bind(this);
-        // this._onReleaseButton = this._onReleaseButton.bind(this);
-        // this.reload = this.reload.bind(this);
-        // this.pickColor = this.pickColor.bind(this);
-        // this._parseBool = this._parseBool.bind(this);
         this.getRGB = this.getRGB.bind(this);
+        this.togglePickColor = this.togglePickColor.bind(this);
 
         this.colors = []
-
         for (let i = 0; i < 255; i+=5){
             for (let j = 0; j < 255; j+=5){
                 this.colors.push( { x:i*this.props.width/255, y:j*this.props.height/255 } )
             }
         }
-        //
 
         this.pattern = this.colors.map( (coordinate) => (
                     <div
                         className="pattern"
-                        style={{left:coordinate.x, top:coordinate.y, width:10*this.props.width/255, height:10*this.props.height/255, color:'transparent', backgroundColor: this.getRGB((coordinate.x/(this.props.width/255)), (coordinate.y/(this.props.width/255)))}}></div>
+                        key = {Math.random().toString()}
+                        style={{
+                            left:coordinate.x,
+                            top:coordinate.y,
+                            width:10*this.props.width/255,
+                            height:10*this.props.height/255,
+                            color:'transparent',
+                            backgroundColor: this.getRGB((coordinate.x/(this.props.width/255)), (coordinate.y/(this.props.width/255)))}}>
+                    </div>
                 ))
     }
-    //
-    // depletePaint(){
-    //     if ( this.state.meter >= .01 ){
-    //         let current_Amount = this.state.meter
-    //         // this.setState( {meter: current_Amount-.001});
-    //         this.setState( {meter: current_Amount-.00001});
-    //
-    //     } else {
-    //         this.setState( {meter: 0});
-    //     }
-    // }
-    //
-    // reload(){
-    //     this.setState({reload:false})
-    //     this.setState({meter: .7})
-    // }
-    //
-    // dispayPercentage(){
-    //     let percentage = parseInt(this.state.meter / .7 * 100)
-    //     return percentage.toString()
-    // }
-    //
-    // pickColor(){
-    //     this.setState({colorMenuToggled: !this.state.colorMenuToggled})
-    // }
-    //
-    // _parseBool(){
-    //     if (this.state.colorMenuToggled){
-    //         return 'color Menu Toggled'
-    //     } else {
-    //         return 'color Menu not Toggled'
-    //     }
-    // }
-    //
-    // _onPressButton() {
-    //   this.setState({buttonDown:true})
-    // }
-    //
-    // _onReleaseButton() {
-    //     this.setState({buttonDown:false})
-    //     if (!this.state.reload) {
-    //         this.setState({reload:true})
-    //     }
-    // }
-
-    // style={{'background-color':this.state.selectedColor}}
-
-    //
-    // <div className='colorPicker'>
-    //
-    //     <button onPressIn={undefined} onPressOut={undefined} underlayColor="white">
-    //         <div className='colorBlock'>
-    //           <h1 className='text'>click and drag to select a color</h1>
-    //         </div>
-    //     </button>
-    // </div>
 
     getRGB(x,y) {
         let R = 255-x
@@ -125,19 +75,73 @@ class CreateAnimal extends Component {
         return `rgb(${R},${G},${B})`
     }
 
+    togglePickColor(){
+        this.setState({pickingColor: !this.state.pickingColor});
+    }
+
+    _onMouseMove(e) {
+        if (this.state.pickingColor){
+            this.setState({ locationX: e.screenX, locationY: e.screenY, color: this.getRGB((e.screenX/(this.props.width/255)), (e.screenY/(this.props.width/255))) });
+        }
+    }
+
+
     render(){
-        setTimeout(() => {console.log(this.colors)}, 4000)
-
-
+        const { locationX, locationY } = this.state;
         return (
-            <div className='container'>
-            <div clasName="radialTransparency"></div>
-                <div className="backgroundPattern">
-                    {this.pattern}
-                </div>
+            <div className='container'
+                 onMouseMove={this._onMouseMove.bind(this)}
+                 onMouseUp={(e) => this.props.create(locationX,locationY, this.state.color)}>
+                    <button
+                        className="createAnimalButton"
+                        onMouseDown={this.togglePickColor}>
+                        {
+                        this.state.pickingColor
+                            ?
+                        <Icon type='Question' color={this.state.color} height={this.props.height/2} width={this.props.width/2}/>
+                        :
+                        <Icon type='Question' color='white' height={this.props.height/2} width={this.props.width/2}/>
+                        }
+                    </button>
+                    <h1 className="createAnimalText">
+                      <span className="char1">c</span>
+                      <span className="char2">l</span>
+                      <span className="char3">i</span>
+                      <span className="char4">c</span>
+                      <span className="char5">k</span>
+                      <span className="char6"> </span>
+                      <span className="char7">a</span>
+                      <span className="char8">n</span>
+                      <span className="char9">d</span>
+                      <span className="char10"> </span>
+                      <span className="char11">d</span>
+                      <span className="char12">r</span>
+                      <span className="char13">a</span>
+                      <span className="char14">g</span>
+                      <span className="char15"> </span>
+                      <span className="char16">t</span>
+                      <span className="char17">o</span>
+                      <span className="char18"> </span>
+                      <span className="char19">p</span>
+                      <span className="char20">i</span>
+                      <span className="char21">c</span>
+                      <span className="char22">k</span>
+                      <span className="char23"> </span>
+                      <span className="char24">c</span>
+                      <span className="char25">o</span>
+                      <span className="char26">l</span>
+                      <span className="char27">o</span>
+                      <span className="char28">r</span>
+                    </h1>
+
+                    <div className="backgroundPattern">
+                        {this.pattern}
+                    </div>
             </div>
         )
     }
 }
 
 export default CreateAnimal
+
+                    // <h1 className="createAnimalText">click and drag to pick color</h1>
