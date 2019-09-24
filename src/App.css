@@ -20,3 +20,25 @@
 .App-link {
   color: #09d3ac;
 }
+
+.breatheNormal {
+position: absolute;
+animation:  breathe ease-in-out 3s infinite;
+}
+
+.breatheFast {
+position: absolute;
+animation:  breathe ease-in-out 1s infinite;
+}
+
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
