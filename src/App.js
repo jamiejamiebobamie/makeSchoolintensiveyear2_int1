@@ -90,6 +90,12 @@ render(){
     return (
       <div className="App">
         {vertices}
+        <button
+            style={{left:this.state.width/2-177,top:this.state.height/2-176}}
+            className="toggle"
+            onClick={this.toggle}>
+            <Icon type='Question' color='black'/>
+        </button>
         {this.state.toggle ?
            < Ecosystem
              toggle={this.state.toggle}

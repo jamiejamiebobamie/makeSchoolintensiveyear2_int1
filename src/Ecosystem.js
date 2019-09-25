@@ -29,14 +29,9 @@ class Ecosystem extends Component {
 
     // {type: 'Angry', size: '100', styleClass: 'breatheFast', x: '200', y: '300', color: 'pink'},
                 // onMouseDown={this.props.toggleMethod}>
-
+                console.log(this.state.width,this.state.height)
         return (
             <div>
-            <button
-                className="toggle"
-                onClick={this.props.toggleMethod}>
-                <Icon type='Question' color='black' y={this.state.height/2} x={this.state.width/400}/>
-            </button>
                 {animals}
             </div>
             )

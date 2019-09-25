@@ -46,9 +46,9 @@ animation:  breathe ease-in-out 1s infinite;
 .toggle{
     position: absolute;
     z-index: 5;
-    width: 350px;
-    height: 350px;
-    background-color: transparent;
+    width: 370px;
+    height: 370px;
+    /* background-color: transparent; */
     border-color: transparent;
     border-radius: 250px;
     /* animation:  breathe ease-in-out 3s infinite; */
