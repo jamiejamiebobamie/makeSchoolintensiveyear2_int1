@@ -35,7 +35,7 @@ class Ecosystem extends Component {
             <button
                 className="toggle"
                 onClick={this.props.toggleMethod}>
-                <Icon type='Question' color='black' height={this.props.height/2} width={this.props.width/2}/>
+                <Icon type='Question' color='black' y={this.state.height/2} x={this.state.width/400}/>
             </button>
                 {animals}
             </div>

@@ -65,27 +65,49 @@ class App extends Component {
         }
     }
 
+    drawPoint(r, currentPoint, totalPoints) {
+        var theta = ((Math.PI*2) / totalPoints);
+        var angle = (theta * currentPoint+1);
+        var x = (r * Math.cos(angle));
+        var y = (r * Math.sin(angle));
+        return {x, y};
+    }
+
 render(){
+    const numOfPoints = 16
+    const radius = 200
+    let points = []
+
+    for (let i = 0; i < numOfPoints; i++){
+        const newVertex = this.drawPoint(radius, numOfPoints - i, numOfPoints)
+        points.push(newVertex)
+    }
+
+    const vertices = points.map( (vertex)=>
+        <div className='vertices' style={{left:vertex.x+(this.state.width/2), top:vertex.y+(this.state.height/2)}}>hi</div>
+    )
+
     return (
       <div className="App">
-       {this.state.toggle ?
-          < Ecosystem
-            toggle={this.state.toggle}
-            storeLocations={this.storeLocations}
-            width={window.innerWidth-100}
-            height={window.innerHeight-100}
-            holdingCage = {this.state.holdingCage}
-            addToZoo={this.addToZoo}
-            zoo={this.state.zoo}
-            toggleMethod = {this.toggle.bind(this)}
-            />
-         :
-         < CreateAnimal
-             width={window.innerWidth}
-             height={window.innerHeight}
-             create={this.create}
-         />
-         }
+        {vertices}
+        {this.state.toggle ?
+           < Ecosystem
+             toggle={this.state.toggle}
+             storeLocations={this.storeLocations}
+             width={window.innerWidth-100}
+             height={window.innerHeight-100}
+             holdingCage = {this.state.holdingCage}
+             addToZoo={this.addToZoo}
+             zoo={this.state.zoo}
+             toggleMethod = {this.toggle.bind(this)}
+             />
+          :
+          < CreateAnimal
+              width={window.innerWidth}
+              height={window.innerHeight}
+              create={this.create}
+          />
+          }
       </div>
     )
 }

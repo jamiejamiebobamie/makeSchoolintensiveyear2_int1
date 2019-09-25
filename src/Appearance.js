@@ -99,6 +99,7 @@ function Appearance(props){
     case 'Question':
       type = (<Question
                       className='questionMark'
+                      style={{left:props.x,top:props.y}}
                       color={props.color}
                       size='100' />)
         break;
