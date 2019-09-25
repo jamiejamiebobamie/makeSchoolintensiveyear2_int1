@@ -2,7 +2,10 @@ import React, {Component} from 'react';
 
 import Ecosystem from './Ecosystem'
 import CreateAnimal from './CreateAnimal'
+import Icon from './Icon'
 import './App.css';
+
+import data from './iconEncyclo.js'
 
 class App extends Component {
 
@@ -15,12 +18,14 @@ class App extends Component {
                 toggle: true,
                 zoo: [],
                 holdingCage:undefined}
+
         //https://stackoverflow.com/questions/36862334/get-viewport-window-height-in-reactjs
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+
         this.toggle = this.toggle.bind(this);
         this.storeLocations = this.storeLocations.bind(this);
         this.create = this.create.bind(this);
-        // this.sendNewToEcosystem = this.sendNewToEcosystem.bind(this);
+        this.addToZoo = this.addToZoo.bind(this)
     }
 
     componentDidMount() {
@@ -49,27 +54,20 @@ class App extends Component {
     }
     // {type: 'Angry', size: '100', styleClass: 'breatheFast', x: '200', y: '300', color: 'pink'},
     create(x,y,color){
-        this.setState({holdingCage: {type:'Bot',id:Math.random(), x:x,y:y,color:color,size:250*Math.random()+250*Math.random(), styleClass:'breatheNormal'}, toggle: true})
+        this.setState({holdingCage: {type:data[Math.floor(Math.random() * data.length)].componentName,id:Math.random(), x:x,y:y,color:color,size:250*Math.random()+250*Math.random(), styleClass:'breatheNormal'}, toggle: true})
     }
 
     addToZoo(){
+        if (this.state.holdingCage){
         const newAnimal = this.state.holdingCage
         const newAnimals = [...this.state.zoo, newAnimal]
         this.setState({zoo: newAnimals, holdingCage:undefined})
+        }
     }
 
-
 render(){
-    // setTimeout(() => {
-        // console.log(this.state)
-        if (this.state.holdingCage){
-            this.addToZoo()
-        }
-    // }, 1000)
-
     return (
       <div className="App">
-      <button onClick={this.toggle}>hello</button>
        {this.state.toggle ?
           < Ecosystem
             toggle={this.state.toggle}
@@ -77,7 +75,9 @@ render(){
             width={window.innerWidth-100}
             height={window.innerHeight-100}
             holdingCage = {this.state.holdingCage}
+            addToZoo={this.addToZoo}
             zoo={this.state.zoo}
+            toggleMethod = {this.toggle.bind(this)}
             />
          :
          < CreateAnimal

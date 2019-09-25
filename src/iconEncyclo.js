@@ -2,16 +2,6 @@ const data = [
 
     // companies
 
-    [{ name: 'Amazon',
-      type: 'company',
-      location:'styled-icons/boxicons-logos/Amazon',
-      componentName: 'Amazon'}],
-
-    { name: 'Apple',
-      type: 'company',
-      location:'styled-icons/boxicons-logos/Apple',
-      componentName: 'Apple'},
-
     { name: 'Facebook',
       type: 'company',
       location:'styled-icons/boxicons-logos/FacebookSquare',
@@ -34,35 +24,41 @@ const data = [
 
     // heads
 
-    { name: 'Angryman1',
+    { name: 'Angry',
       type: 'head',
       location:'styled-icons/boxicons-regular/Angry',
       componentName: 'Angry'},
 
-    { name: 'Robot',
+    { name: 'Bot',
       type: 'head',
       location:'styled-icons/boxicons-regular/Bot',
       componentName: 'Bot'},
 
-    { name: 'Confused Man',
+    { name: 'Confused',
       type: 'head',
       location:'styled-icons/boxicons-regular/Confused',
       componentName: 'Confused'},
 
-    { name: 'Cool Guy',
+    { name: 'Cool',
       type: 'head',
       location:'styled-icons/boxicons-regular/Cool',
       componentName: 'Cool'},
 
-    { name: 'Happy Man',
+    { name: 'Happy',
       type: 'head',
       location:'styled-icons/boxicons-regular/HappyBeaming',
       componentName: 'HappyBeaming'},
 
-    { name: 'In-Love Guy',
+    { name: 'In-Love',
       type: 'head',
       location:'styled-icons/boxicons-regular/HappyHeartEyes',
       componentName: 'HappyHeartEyes'},
+
+
+      { name: 'Mailchimp',
+        type: 'head',
+        location:'styled-icons/fa-brands/Mailchimp',
+        componentName: 'Mailchimp'},
 
 ]
 

@@ -73,22 +73,9 @@
     z-index: 0;
 }
 
-
-.radialTransparency{
-    display: flex;
-    margin-top: auto;
-    margin-left: auto;
-    margin-bottom: auto;
-    margin-right: auto;
-    background: rgb(0,42,255);
-    background: radial-gradient(circle, rgba(0,0,0,1) 19%, rgba(255,255,255,1) 100%);
-    position:absolute;
-    z-index: 2;
-}
-
 .questionMark{
-    left:25%;
-    top:5%;
+    left:35.5%;
+    top:32%;
     position: absolute;
     z-index: 5
 }
@@ -106,11 +93,9 @@
 
     width: 400px;
     height: 120px;
-    -webkit-animation:spin 50s linear infinite;
-    -moz-animation:spin 50s linear infinite;
-    animation:spin 50s linear infinite;
-    top: 27.2%;
-    left: 51.5%;
+
+    top: 27%;
+    left: 50%;
     /* transform-origin: bottom center; */
 
 }
@@ -128,11 +113,14 @@ h1 span {
 }
 
 span{
-    @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-    @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-    @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+    -webkit-animation:spin 30s ease-in infinite alternate-reverse;
+    -moz-animation:spin 30s ease-in infinite alternate-reverse;
+    animation:spin 30s ease-in infinite alternate-reverse;
 
 }
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 .char1 { transform: rotate(12.4deg); }
 .char2 { transform: rotate(24.8deg); }
@@ -166,14 +154,16 @@ span{
 
 
 .createAnimalButton{
-    left:45%;
-    top:40%;
+    left:41.2%;
+    top:30.8%;
     position: absolute;
     z-index: 5;
-    width: 200px;
-    height: 200px;
+    width: 350px;
+    height: 350px;
     background-color: transparent;
     border-color: transparent;
+    border-radius: 250px;
+    animation:  breathe ease-in-out 3s infinite;
 }
 
 
@@ -183,7 +173,6 @@ span{
     } */
 
     .createAnimalButton{
-        top:39.5%;
-        left:33%;
+        left:17%;
     }
 }

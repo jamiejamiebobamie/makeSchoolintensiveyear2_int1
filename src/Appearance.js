@@ -19,6 +19,8 @@ import {HappyBeaming} from 'styled-icons/boxicons-regular'
 import {HappyHeartEyes} from 'styled-icons/boxicons-regular'
 import {Question} from 'styled-icons/octicons'
 
+import {Mailchimp} from 'styled-icons/fa-brands'
+
 
 function Appearance(props){
 
@@ -99,7 +101,14 @@ function Appearance(props){
                       className='questionMark'
                       color={props.color}
                       size='100' />)
-      break;
+        break;
+      case 'Mailchimp':
+                type = (<Mailchimp
+                    className={props.styleClass}
+                    style={{left:props.x,top:props.y}}
+                    color={props.color}
+                    size={props.size} />)
+                  break;
       default:
         type = (<Snapchat
                         className={props.styleClass}

@@ -85,6 +85,21 @@ class CreateAnimal extends Component {
         }
     }
 
+    //
+    // <div className='container'
+    //      onMouseMove={this._onMouseMove.bind(this)}
+    //      onMouseUp={(e) => this.props.create(locationX,locationY, this.state.color)}>
+    //         <button
+    //             className="createAnimalButton"
+    //             onMouseDown={this.togglePickColor}>
+    //             {
+    //             this.state.pickingColor
+    //                 ?
+    //             <Icon type='Question' color={this.state.color} height={this.props.height/2} width={this.props.width/2}/>
+    //             :
+    //             <Icon type='Question' color='white' height={this.props.height/2} width={this.props.width/2}/>
+    //             }
+    //         </button>
 
     render(){
         const { locationX, locationY } = this.state;

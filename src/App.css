@@ -42,3 +42,44 @@ animation:  breathe ease-in-out 1s infinite;
     transform: scale(1);
   }
 }
+
+.toggle{
+    left:41.2%;
+    top:30.8%;
+    position: absolute;
+    z-index: 5;
+    width: 350px;
+    height: 350px;
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 250px;
+    animation:  breathe ease-in-out 3s infinite;
+}
+
+@media only screen and (max-width:600px){
+    /* .createAnimalText{
+            font-size: 30px;
+    } */
+
+    .toggle{
+        /* top:39.5%; */
+        left:17%;
+    }
+}
+
+/* .toggle:hover{
+    animation:  toggleHover linear 3s ;
+}
+
+
+@keyframes toggleHover {
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(2);
+  }
+} */

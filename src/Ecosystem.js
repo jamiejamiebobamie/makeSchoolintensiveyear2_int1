@@ -12,6 +12,7 @@ class Ecosystem extends Component {
             zoo: [...this.props.zoo]
             }
         // this.liftLocationsToLCA = this.liftLocationsToLCA.bind(this)
+        this.props.addToZoo()
     }
     //
     // this.props.storeLocations()
@@ -27,10 +28,15 @@ class Ecosystem extends Component {
         ))
 
     // {type: 'Angry', size: '100', styleClass: 'breatheFast', x: '200', y: '300', color: 'pink'},
-
+                // onMouseDown={this.props.toggleMethod}>
 
         return (
             <div>
+            <button
+                className="toggle"
+                onClick={this.props.toggleMethod}>
+                <Icon type='Question' color='black' height={this.props.height/2} width={this.props.width/2}/>
+            </button>
                 {animals}
             </div>
             )
